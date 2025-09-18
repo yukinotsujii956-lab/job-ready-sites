@@ -1,0 +1,70 @@
+:root{
+  --bg:#ffffff; --text:#222; --muted:#6b7280; --brand:#2563eb; --brand-2:#1e40af; --card:#f8fafc; --border:#e5e7eb;
+  --radius:16px; --space:clamp(16px,2vw,24px);
+}
+*{box-sizing:border-box}
+html{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Hiragino Kaku Gothic ProN',sans-serif;line-height:1.6;color:var(--text);background:var(--bg)}
+img{max-width:100%;height:auto;display:block}
+.wrapper{max-width:1120px;margin-inline:auto;padding-inline:var(--space)}
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.logo{font-weight:700}
+.nav a{margin-left:16px}
+.hero{background:linear-gradient(180deg, #e0f2fe, #ffffff)}
+.hero__inner{padding:72px 0;text-align:center}
+.hero__title{font-size:clamp(28px,5vw,40px);margin:0 0 8px}
+.hero__lead{color:var(--muted);margin:0 0 16px}
+.btn{display:inline-block;padding:10px 16px;border-radius:9999px;border:1px solid var(--border);text-decoration:none}
+.btn.primary{background:var(--brand);color:#fff;border-color:transparent}
+.btn.primary:hover{background:var(--brand-2)}
+.btn.outline{background:#fff}
+.btn.lg{padding:14px 22px;font-weight:600}
+.section{padding:56px 0}
+.section-title{text-align:center;margin:0 0 24px;font-size:clamp(22px,3.2vw,28px)}
+.grid{display:grid;gap:16px}
+.cards-3{grid-template-columns:repeat(1,1fr)}
+@media(min-width:768px){.cards-3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.price{font-weight:700;font-size:20px}
+.table-wrap{overflow:auto}
+.table-wrap table{width:100%;border-collapse:collapse}
+.table-wrap th,.table-wrap td{border:1px solid var(--border);padding:10px;text-align:center}
+.faq{border:1px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:12px;background:#fff}
+.form-grid{grid-template-columns:1fr}
+.form-grid label{display:flex;flex-direction:column;gap:6px}
+.form-grid input,.form-grid select,.form-grid textarea{padding:10px;border:1px solid var(--border);border-radius:10px}
+@media(min-width:768px){.form-grid{grid-template-columns:repeat(2,1fr)}}
+.site-footer{padding:24px 0;border-top:1px solid var(--border);margin-top:40px}
+
+.hero{
+  /* 既存のグラデがあるなら残してOK。上に画像を重ねるなら以下で上書き */
+  background-image: url('../images/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 48vh; /* 足りなければ60〜70vhに */
+}
+/* --- Hero 視認性アップ --- */
+.hero,
+.hero__inner { position: relative; }
+
+.hero {
+  /* 画像はそのまま。上に薄いグラデを重ねる */
+  min-height: 60vh;           /* 少し背を高く（お好みで 48–70vh） */
+  display: grid;
+  place-items: center;
+  padding: 40px 0;
+  overflow: hidden;           /* ::beforeのはみ出し防止 */
+}
+
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(
+    rgba(0,0,0,0.35),      /* 上：濃いめ */
+    rgba(0,0,0,0.15)       /* 下：薄め */
+  );
+}
+
+.hero__title{ 
+  color:#fff; 
+  text-shadow:

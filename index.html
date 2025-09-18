@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Niseko SnowRent｜レンタル予約</title>
+  <meta name="description" content="スキー・スノーボードレンタルのオンライン予約。サイズガイド、料金、よくある質問。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/base.css" />
+
+</head>
+<body>
+  <header class="site-header wrapper">
+    <a class="logo" href="/">Niseko SnowRent</a>
+    <nav class="nav">
+      <a href="#pricing">料金</a>
+      <a href="#sizes">サイズ</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn primary" href="#reserve">予約</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrapper hero__inner">
+        <h1 class="hero__title">その場ですぐ、<span class="em">レンタル予約</span></h1>
+        <p class="hero__lead">スキー/スノーボード一式。オンラインで簡単予約、店舗で受け取り。</p>
+        <a class="btn primary lg" href="#reserve">空き状況を確認</a>
+      </div>
+    </section>
+
+    <section id="pricing" class="section wrapper">
+      <h2 class="section-title">料金</h2>
+      <div class="grid cards-3">
+        <article class="card">
+          <h3>スキーセット</h3>
+          <p class="price"><span>¥5,500</span>/日〜</p>
+          <ul class="list">
+            <li>板・ブーツ・ポール</li>
+            <li>ヘルメット +¥800</li>
+          </ul>
+          <a class="btn outline" href="#reserve">予約へ</a>
+        </article>
+        <article class="card">
+          <h3>スノボセット</h3>
+          <p class="price"><span>¥5,800</span>/日〜</p>
+          <ul class="list">
+            <li>ボード・ブーツ・バインディング</li>
+            <li>ヘルメット +¥800</li>
+          </ul>
+          <a class="btn outline" href="#reserve">予約へ</a>
+        </article>
+        <article class="card">
+          <h3>ウェア</h3>
+          <p class="price"><span>¥2,500</span>/日〜</p>
+          <ul class="list">
+            <li>ジャケット & パンツ</li>
+            <li>グローブ +¥500</li>
+          </ul>
+          <a class="btn outline" href="#reserve">予約へ</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="sizes" class="section wrapper">
+      <h2 class="section-title">サイズガイド</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>身長(cm)</th><th>スキー(cm)</th><th>スノボ(cm)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>150-160</td><td>145-155</td><td>140-148</td></tr>
+            <tr><td>160-170</td><td>155-165</td><td>148-156</td></tr>
+            <tr><td>170-180</td><td>165-175</td><td>156-162</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="faq" class="section wrapper">
+      <h2 class="section-title">よくある質問</h2>
+      <details class="faq"><summary>当日のキャンセルはできますか？</summary><p>プランにより異なります。前日18:00までの変更は無料です。</p></details>
+      <details class="faq"><summary>保険は含まれますか？</summary><p>基本料金に破損補償は含まれていません。+¥800/日で追加可能です。</p></details>
+    </section>
+
+    <section id="reserve" class="section wrapper">
+      <h2 class="section-title">予約リクエスト</h2>
+      <form action="https://formspree.io/f/mrbawjdp" method="POST">
+  <div class="grid form-grid">
+    <label>お名前<input name="name" required></label>
+    <label>メール<input type="email" name="email" required></label>
+    <label>利用日<input type="date" name="date" required></label>
+    <label>人数<input type="number" name="people" min="1" value="1" required></label>
+    <label>メニュー
+      <select name="menu">
+        <option>スキーセット</option>
+        <option>スノボセット</option>
+        <option>ウェア</option>
+      </select>
+    </label>
+  </div>
+  <label>備考<textarea name="notes" rows="4"></textarea></label>
+
+  <!-- あると便利な追加設定 -->
+  <input type="hidden" name="_subject" value="レンタル予約リクエスト">
+
+  <!-- 簡易スパム対策（人間には見えない） -->
+  <input type="text" name="_gotcha" style="display:none">
+
+  <button class="btn primary" type="submit">送信</button>
+  <input type="hidden" name="_redirect"
+  value="https://＜あなたのGitHubユーザー名＞.github.io/job-ready-sites/projects/rental-landing/thanks.html">
+
+</form>
+    </section>
+  </main>
+
+  <footer class="site-footer wrapper">
+    <small>© Niseko SnowRent</small>
+  </footer>
+</body>
+</html>
