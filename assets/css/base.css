@@ -68,3 +68,53 @@ img{max-width:100%;height:auto;display:block}
 .hero__title{ 
   color:#fff; 
   text-shadow:
+}
+/* ボタンをもっとオシャレに */
+button, .btn, input[type="submit"] {
+  background-color: #1e40af; /* 濃い青 */
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover, .btn:hover, input[type="submit"]:hover {
+  background-color: #2563eb; /* ホバー時に少し明るく */
+}
+
+/* セクション間に余白を追加 */
+section {
+  padding: 60px 20px;
+}
+
+/* 見出しを中央寄せ＋余白 */
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+/* FAQをちょっと見やすく */
+details {
+  background: #f9fafb;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+details summary {
+  font-weight: bold;
+}
+
+/* フッターをシンプルに */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #f1f5f9;
+  font-size: 0.9rem;
+  color: #555;
+}
