@@ -118,3 +118,87 @@ footer {
   font-size: 0.9rem;
   color: #555;
 }
+/* --- 全体の雰囲気アップ --- */
+:root{
+  --brand:#2563eb;         /* メイン青 */
+  --brand-dark:#1e40af;
+  --card:#f6f8fb;
+  --ink:#0f172a;
+}
+html,body{
+  font-family: "Noto Sans JP", system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+}
+.wrapper{ max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+/* --- ヘッダー --- */
+.site-header{
+  position: sticky; top:0; z-index:50; background:#fff;
+  border-bottom: 1px solid #eef2f7; backdrop-filter: saturate(120%) blur(6px);
+}
+.header-inner{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+.logo{ font-weight:700; letter-spacing:.2px; }
+.site-nav{ display:flex; gap:20px; align-items:center; }
+.site-nav a{ text-decoration:none; color:var(--ink); }
+.site-nav .btn.primary{ color:#fff; }
+
+/* --- ハンバーガー --- */
+.nav-toggle{
+  display:none; position:relative; width:44px; height:44px; border:none; background:transparent; cursor:pointer;
+}
+.nav-toggle .bar{
+  display:block; width:24px; height:2px; background:#0f172a; margin:5px auto; transition:transform .25s ease, opacity .2s;
+}
+.nav-open .nav-toggle .bar:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.nav-open .nav-toggle .bar:nth-child(2){ opacity:0; }
+.nav-open .nav-toggle .bar:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+/* --- モバイル用ナビ --- */
+@media (max-width: 768px){
+  .nav-toggle{ display:block; }
+  .site-nav{
+    position: absolute; left:0; right:0; top:64px;
+    display:block; background:#fff; border-bottom:1px solid #eef2f7;
+    transform: translateY(-12px); opacity:0; pointer-events:none;
+    transition: all .2s ease;
+  }
+  .site-nav a{ display:block; padding:14px 20px; border-top:1px solid #f1f5f9; }
+  .site-nav.open{ transform: translateY(0); opacity:1; pointer-events:auto; }
+}
+
+/* --- ボタン（少しリッチに） --- */
+.btn, button, input[type="submit"]{
+  background: var(--brand);
+  color:#fff; border:none; border-radius:999px; padding:12px 24px;
+  font-weight:600; letter-spacing:.2px; box-shadow: 0 6px 16px rgba(37,99,235,.22);
+  transition: transform .06s ease, background .2s ease, box-shadow .2s ease;
+}
+.btn:hover, button:hover, input[type="submit"]:hover{
+  background: var(--brand-dark); box-shadow: 0 8px 20px rgba(30,64,175,.25);
+}
+.btn:active{ transform: translateY(1px); }
+
+/* --- セクション間の余白統一 --- */
+section{ padding: 64px 0; }
+section.alt{ background: var(--card); }
+
+/* --- カード強化（料金など） --- */
+.card{
+  background:#fff; border:1px solid #eef2f7; border-radius:16px;
+  box-shadow: 0 6px 18px rgba(15,23,42,.04);
+  padding:24px;
+}
+
+/* --- 見出しサイズ（スマホ最適化） --- */
+h1{ font-size: clamp(28px, 6vw, 48px); }
+h2{ font-size: clamp(22px, 4.2vw, 32px); text-align:center; margin-bottom: 24px; }
+
+/* --- Hero（既存に追加で微調整） --- */
+.hero{ min-height: 64vh; }
+.hero__title{ text-shadow: 0 6px 24px rgba(0,0,0,.25); }
+
+/* --- フォーム使いやすく --- */
+input, select, textarea{
+  border:1px solid #e5e7eb; border-radius:12px; padding:12px 14px; width:100%;
+}
+label{ display:block; margin-bottom:14px; font-weight:600; }

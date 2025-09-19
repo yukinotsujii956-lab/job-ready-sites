@@ -9,6 +9,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/base.css" />
+<!-- 追加：Google Fonts（日本語に相性◎） -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- 追加：ハンバーガー用のJS -->
+<script src="assets/js/main.js" defer></script>
 
 </head>
 <body>
@@ -19,6 +26,19 @@
       <a href="#sizes">サイズ</a>
       <a href="#faq">FAQ</a>
       <a class="btn primary" href="#reserve">予約</a>
+      <header class="site-header">
+  <div class="wrapper header-inner">
+    <a class="logo" href="/">Niseko SnowRent</a>
+
+    <!-- 追加：ハンバーガー -->
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      <span class="sr-only">メニュー</span>
+    </button>
+    </nav>
+  </div>
+</header>
+
     </nav>
   </header>
 
