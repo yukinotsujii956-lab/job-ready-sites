@@ -202,3 +202,146 @@ input, select, textarea{
   border:1px solid #e5e7eb; border-radius:12px; padding:12px 14px; width:100%;
 }
 label{ display:block; margin-bottom:14px; font-weight:600; }
+/* ===== Appleっぽい全体トーン ===== */
+:root{
+  --ink: #0b1220;
+  --muted: #64748b;
+  --line: #e6eaf2;
+  --bg: #ffffff;
+  --bg-alt: #f7f9fc;
+  --brand: #0a84ff;          /* iOS系の青 */
+  --brand-dark:#0066cc;
+}
+
+html{ scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+}
+
+body{
+  font-family: "Noto Sans JP", -apple-system, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--ink);
+  background: var(--bg);
+  letter-spacing: .01em;
+  -webkit-font-smoothing: antialiased;
+}
+.wrapper{ max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+/* ===== ヘッダー（ガラス感＋極薄ボーダー） ===== */
+.site-header{
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: saturate(140%) blur(10px);
+  background: color-mix(in oklab, #fff 70%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner{ height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.logo{ font-weight: 700; text-decoration: none; color: var(--ink); letter-spacing: .02em; }
+
+/* ヘッダーのリンクは細い下線アニメ */
+.site-nav{ display: flex; gap: 22px; align-items: center; }
+.site-nav a{
+  color: var(--ink); text-decoration: none; position: relative; padding: 4px 0;
+}
+.site-nav a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-4px; height:1.5px; background: var(--ink);
+  transform: scaleX(0); transform-origin: left; transition: transform .18s ease;
+  opacity:.15;
+}
+.site-nav a:hover::after{ transform: scaleX(1); }
+
+/* ===== ハンバーガー ===== */
+.nav-toggle{ display:none; width:44px; height:44px; border:0; background:transparent; cursor:pointer; }
+.nav-toggle .bar{ display:block; width:23px; height:2px; background:#111827; margin:6px auto; transition: transform .2s ease, opacity .2s; }
+.nav-open .nav-toggle .bar:nth-child(1){ transform: translateY(8px) rotate(45deg); }
+.nav-open .nav-toggle .bar:nth-child(2){ opacity:0; }
+.nav-open .nav-toggle .bar:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
+
+/* モバイルナビ */
+@media (max-width:768px){
+  .nav-toggle{ display:block; }
+  .site-nav{
+    position:absolute; top:64px; left:0; right:0; display:block; background:#fff;
+    border-bottom:1px solid var(--line); transform: translateY(-12px);
+    opacity:0; pointer-events:none; transition: all .18s ease;
+  }
+  .site-nav a{ display:block; padding:14px 20px; border-top:1px solid var(--line); }
+  .site-nav.open{ transform: translateY(0); opacity:1; pointer-events:auto; }
+}
+.no-scroll{ overflow: hidden; }
+
+/* オーバーレイ（ナビ開時に背景を少し暗く） */
+.overlay{
+  position: fixed; inset: 0; background: rgba(15,23,42,.25); z-index: 40;
+  animation: fadeIn .18s ease;
+}
+@keyframes fadeIn{ from{ opacity:0 } to{ opacity:1 } }
+
+/* ===== Hero：余白たっぷり、タイポ強調 ===== */
+.hero{ min-height: 68vh; display:grid; place-items:center; text-align:center; padding: 28px 0; position:relative; }
+.hero__title{ font-weight: 700; line-height: 1.15; font-size: clamp(28px, 6.5vw, 56px); text-shadow: 0 10px 30px rgba(0,0,0,.28); }
+.hero__lead{ color: #e6efff; opacity: .95; font-size: clamp(14px, 2.8vw, 18px); }
+
+/* ===== セクション設計 ===== */
+section{ padding: 80px 0; }
+section.alt{ background: var(--bg-alt); }
+h2{ text-align:center; font-size: clamp(22px, 4.2vw, 34px); margin-bottom: 28px; letter-spacing:.01em; }
+
+/* ===== ボタン：丸すぎず、影は極薄 ===== */
+.btn, button, input[type="submit"]{
+  background: var(--brand); color:#fff; border:1px solid color-mix(in oklab, var(--brand) 70%, #000 0%);
+  border-radius: 28px; padding: 12px 22px; font-weight: 600;
+  box-shadow: 0 6px 18px rgba(10,132,255,.18);
+  transition: background .2s ease, transform .06s ease, box-shadow .2s ease;
+}
+.btn:hover, button:hover, input[type="submit"]:hover{
+  background: var(--brand-dark); box-shadow: 0 10px 24px rgba(0,102,204,.22);
+}
+.btn:active{ transform: translateY(1px); }
+.btn.outline{
+  background: transparent; color: var(--ink);
+  border: 1px solid var(--line); box-shadow:none;
+}
+
+/* ===== カード（料金など）：線極薄・角浅め・影ごく弱く） ===== */
+.card{
+  background:#fff; border: 1px solid var(--line); border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(2,6,23,.05); padding: 22px;
+}
+.card h3{ margin: 4px 0 10px; }
+
+/* ===== テーブル：Apple風に線薄め、セル広め ===== */
+table{ width:100%; border-collapse: collapse; }
+th, td{ border: 1px solid var(--line); padding: 14px 16px; text-align: center; }
+th{ background: #fbfdff; font-weight: 700; }
+
+/* ===== FAQ：開閉をスムーズに、アイコン風ケアット ===== */
+details{
+  background: #fff; border:1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin: 12px 0;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+details[open]{ box-shadow: 0 8px 20px rgba(2,6,23,.05); }
+details summary{
+  list-style: none; cursor: pointer; font-weight: 600; position: relative; padding-right: 24px;
+}
+details summary::-webkit-details-marker{ display:none; }
+details summary::after{
+  content: "›"; position: absolute; right: 4px; top: 0; font-size: 20px; transform: rotate(90deg); transition: transform .18s ease;
+}
+details[open] summary::after{ transform: rotate(270deg); }
+
+/* ===== フォーム：行間広め、角浅め ===== */
+label{ display:block; font-weight:600; margin: 10px 0 6px; }
+input, select, textarea{
+  width:100%; border:1px solid var(--line); border-radius: 12px; padding: 12px 14px; outline: none;
+  background: #fff; transition: border-color .15s ease, box-shadow .15s ease;
+}
+input:focus, select:focus, textarea:focus{
+  border-color: color-mix(in oklab, var(--brand) 70%, #000 0%);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--brand) 16%, transparent);
+}
+
+/* ===== 余白微調整（スマホ） ===== */
+@media (max-width:768px){
+  section{ padding: 64px 0; }
+  .header-inner{ height: 56px; }
+}
